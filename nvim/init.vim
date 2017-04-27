@@ -44,7 +44,7 @@ nnoremap <Leader><Tab> :bn!<CR>
 nnoremap <Leader>q :bd<CR>
 
 " build the project on every save
-autocmd BufWritePost *.elm :term make build
+autocmd BufWritePost *.elm :term make build ELM_MODE=development
 
 " Quick window motion mappings
 map <C-h> <C-w>h
@@ -52,6 +52,13 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+
+""""""""""""""""""""""""""""""""""'
+" persistent undo
+if has('persistent_undo')      "check if your vim version supports it
+  set undofile                 "turn on the feature  
+  set undodir=$HOME/.config/nvim/undo  "directory where the undo files will be stored
+endif   
 
 """""""""""""""""""""""""""""""""""""""""""""
 " plugins
@@ -73,8 +80,8 @@ Plug 'jacoborus/tender.vim'
 Plug 'tpope/vim-fugitive'
 
 " tree file navigation
-Plug 'scrooloose/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
+"Plug 'scrooloose/nerdtree'
+"map <C-n> :NERDTreeToggle<CR>
 
 "Plug 'scrooloose/syntastic'
 "
@@ -110,6 +117,9 @@ let g:ycm_semantic_triggers = {
      \}
 
 Plug 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](elm-stuff|dist)$'
+  \ }
 
 Plug 'mileszs/ack.vim'
 

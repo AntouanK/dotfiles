@@ -29,6 +29,7 @@ set shiftwidth=4
 set tabstop=4
 
 set number
+set relativenumber
 
 " show invisibles
 set list
@@ -39,10 +40,25 @@ set noswapfile
 
 """""""""""""""""""""""""""""""""""""""""""""
 " custom commands
-nnoremap <Leader><Tab> :bn<CR>
+nnoremap <Leader><Tab> :bn!<CR>
+nnoremap <Leader>q :bd<CR>
 
 " build the project on every save
-autocmd BufWritePost *.elm :botright | !make build
+autocmd BufWritePost *.elm :term make build ELM_MODE=development
+
+" Quick window motion mappings
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+
+""""""""""""""""""""""""""""""""""'
+" persistent undo
+if has('persistent_undo')      "check if your vim version supports it
+  set undofile                 "turn on the feature  
+  set undodir=$HOME/.config/nvim/undo  "directory where the undo files will be stored
+endif   
 
 """""""""""""""""""""""""""""""""""""""""""""
 " plugins
@@ -55,6 +71,8 @@ Plug 'elmcast/elm-vim'
 let g:elm_format_autosave = 1
 let g:elm_make_show_warnings = 1
 let g:elm_make_output_file = "./dist/elm.js"
+let g:elm_detailed_complete = 1
+
 " colors scheme
 Plug 'jacoborus/tender.vim'
 
@@ -62,9 +80,11 @@ Plug 'jacoborus/tender.vim'
 Plug 'tpope/vim-fugitive'
 
 " tree file navigation
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
+"map <C-n> :NERDTreeToggle<CR>
 
 "Plug 'scrooloose/syntastic'
+"
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -79,6 +99,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+
 "let g:airline_right_alt_sep = ''
 "let g:airline_right_sep = ''
 "let g:airline_left_alt_sep= ''
@@ -93,8 +117,13 @@ let g:ycm_semantic_triggers = {
      \}
 
 Plug 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](elm-stuff|dist)$'
+  \ }
 
 Plug 'mileszs/ack.vim'
+
+Plug 'tpope/vim-surround'
 
 call plug#end()
 

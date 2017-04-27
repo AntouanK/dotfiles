@@ -69,3 +69,5 @@ alias shutdown
 
 alias make-build-watch="make build && while inotifywait -e close_write ./src/**/*; do clear && make build ; done"
 
+alias vpnStart="sudo systemctl start openvpn-client@de-1-vultr.service"
+alias vpnStop="sudo systemctl stop openvpn-client@de-1-vultr.service"
