@@ -24,8 +24,8 @@ export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
 export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\e[0m'           # end underline
 export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
-# add the .npm-global binaries in the PATH
-export PATH="$(echo ~/.npm-global/bin):$PATH"
+# add the binaries in the PATH
+export PATH="$(echo ~/.npm-global/bin):/home/antouank/.local/bin:/home/antouank/.cabal/bin:$PATH"
 export EDITOR=vim
 export BROWSER=/usr/bin/vivaldi-stable
 

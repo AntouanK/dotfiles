@@ -42,6 +42,8 @@ set noswapfile
 " custom commands
 nnoremap <Leader><Tab> :bn!<CR>
 nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>c :GhcModCheckAsync<CR>
+nnoremap <Leader>t :GhcModType<CR>
 
 " build the project on every save
 autocmd BufWritePost *.elm :term make build ELM_MODE=development
@@ -125,6 +127,10 @@ Plug 'mileszs/ack.vim'
 
 Plug 'tpope/vim-surround'
 
+Plug 'eagletmt/ghcmod-vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
 call plug#end()
+
 
 
