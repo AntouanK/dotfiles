@@ -1,35 +1,40 @@
-export ZSH=/home/antouank/.oh-my-zsh
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="dieter"
-#ZSH_THEME="bureau"
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/antouank/.oh-my-zsh
+
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=1
+export UPDATE_ZSH_DAYS=3
+
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, zsh-syntax-highlighting)
+
 source $ZSH/oh-my-zsh.sh
-# ssh
+
+# User configuration
+
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export "PKG_CONFIG=/usr/bin/pkg-config"
-# Less Colors for Man Pages
-export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\e[0m'           # end mode
-export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\e[0m'           # end underline
-export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
+
+export EDITOR='nvim'
 # add the binaries in the PATH
 export PATH="$(echo ~/.npm-global/bin):/home/antouank/.local/bin:/home/antouank/.cabal/bin:$PATH"
-export EDITOR=vim
 export BROWSER=/usr/bin/vivaldi-stable
 
-setopt extended_glob
+# pure theme
+# https://github.com/sindresorhus/pure
+autoload -U promptinit; promptinit
+prompt pure
+
+
 
 ###################
 # aliases
