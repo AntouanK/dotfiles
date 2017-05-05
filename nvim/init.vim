@@ -34,6 +34,7 @@ set relativenumber
 " show invisibles
 set list
 set listchars=eol:¬,space:·,tab:>-,trail:~,extends:>,precedes:<
+set colorcolumn=80
 
 " disable swap files
 set noswapfile
@@ -129,6 +130,10 @@ Plug 'tpope/vim-surround'
 
 Plug 'eagletmt/ghcmod-vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+Plug 'nginx.vim'
+
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
