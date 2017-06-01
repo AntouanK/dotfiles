@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/antouank/.oh-my-zsh
+export ZSH=/home/antouank/.oh-my-zsh
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=3
@@ -46,7 +46,7 @@ alias realip='curl curlmyip.com'
 # git status
 alias st='git status -s'
 #git log
-alias glog='git log --pretty=oneline --graph --all'
+alias glog='git log --oneline --graph --all'
 # see size of directory
 alias sizeof='du -sh'
 # docker
@@ -63,6 +63,7 @@ alias dcd='docker-compose -f docker-compose.dev.yml'
 
 # git
 alias gdiff='git diff --color | diff-so-fancy | less'
+alias gdevpull='git checkout develop && git pull'
 # ping
 alias ping_google="ping google.com -c 1 | grep time= | sed 's/.*time\=//g'"
 # arch update all

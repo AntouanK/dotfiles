@@ -86,18 +86,18 @@ Plug 'tpope/vim-fugitive'
 "Plug 'scrooloose/nerdtree'
 "map <C-n> :NERDTreeToggle<CR>
 
-"Plug 'scrooloose/syntastic'
-"
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+Plug 'scrooloose/syntastic'
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-"let g:elm_syntastic_show_warnings = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:elm_syntastic_show_warnings = 1
+
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -134,6 +134,17 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'nginx.vim'
 
 Plug 'tpope/vim-dispatch'
+
+""""""""""""""""""" Haskell
+"Plug 'eagletmt/neco-ghc'
+" Disable haskell-vim omnifunc
+"let g:haskellmode_completion_ghc = 0
+"autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Use deoplete.
+"let g:deoplete#enable_at_startup = 1
+
 
 call plug#end()
 
