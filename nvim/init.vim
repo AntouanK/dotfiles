@@ -47,7 +47,7 @@ nnoremap <Leader>c :GhcModCheckAsync<CR>
 nnoremap <Leader>t :GhcModType<CR>
 
 " build the project on every save
-autocmd BufWritePost *.elm :term make build ELM_MODE=development
+"autocmd BufWritePost *.elm :term make build ELM_MODE=development
 
 " Quick window motion mappings
 map <C-h> <C-w>h
@@ -55,6 +55,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
 """"""""""""""""""""""""""""""""""'
 " persistent undo
