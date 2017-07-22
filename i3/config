@@ -195,6 +195,7 @@ bar {
   sensors \
   load \
   memory \
+  xrandr \
   layout \
   datetime \
   -p diskhome.path='/home' \
