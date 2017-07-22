@@ -179,9 +179,15 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # bar
 bar {
 #  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#
+# we get random errors from the fx module
+  #eth \
+  #bitcoin \
   status_command bumblebee-status -t solarized-powerline -m \
   fx \
-  bitcoin \
+  getcrypto \
+  publicip \
+  cmus \
   weather \
   pasink  \
   disk disk:diskhome \
@@ -193,19 +199,21 @@ bar {
   datetime \
   -p diskhome.path='/home' \
   weather.location='Garston, GB' weather.apikey="d5ccd363a224b858632ce96ed7c57bf5" \
-  datetime.format='%A %b %e %T' 
+  publicip.region='uk' \
+  getcrypto.getltc=0 \
+  datetime.format='%a %b %e %T' 
 
   #font pango:Fira Mono for Powerline 10
   font pango:Droid Sans Mono Dotted for Powerline 10
 
   colors {
-		background $bg-color
-       	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
+        background $bg-color
+        separator #757575
+        #                  border             background         text
+        focused_workspace  $bg-color          $bg-color          $text-color
+        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+    }
 }
 
 # lock i3
