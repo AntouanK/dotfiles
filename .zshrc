@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# use oh-my-zsh theme
+ZSH_THEME="steeef"
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/antouank/.oh-my-zsh
 
@@ -31,9 +34,8 @@ export BROWSER=/usr/bin/vivaldi-stable
 
 # pure theme
 # https://github.com/sindresorhus/pure
-autoload -U promptinit; promptinit
-prompt pure
-
+#autoload -U promptinit; promptinit
+#prompt pure
 
 
 ###################
@@ -62,7 +64,7 @@ alias dcstoprm='docker-compose stop && docker-compose rm -f'
 alias dcd='docker-compose -f docker-compose.dev.yml'
 
 # git
-alias gdiff='git diff --color | diff-so-fancy | less'
+#alias gdiff='git diff --color | diff-so-fancy | less'
 alias gdevpull='git checkout develop && git pull'
 # ping
 alias ping_google="ping google.com -c 1 | grep time= | sed 's/.*time\=//g'"
@@ -77,3 +79,4 @@ alias make-build-watch="find ./src | grep .elm | entr make ELM_MODE=development"
 
 alias vpnStart="sudo systemctl start openvpn-client@de-1-vultr.service"
 alias vpnStop="sudo systemctl stop openvpn-client@de-1-vultr.service"
+
