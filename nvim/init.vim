@@ -11,6 +11,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 colorscheme tender
+"colorscheme OceanicNext
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 " Use Unix as the standard file type
@@ -57,12 +58,17 @@ map <C-l> <C-w>l
 
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
+:augroup haskell-formatting
+:   autocmd BufWritePost *.hs silent! !brittany --indent 4 -i <afile> -o <afile>
+:   autocmd BufWritePost * :edit
+:augroup END
+
 """"""""""""""""""""""""""""""""""'
 " persistent undo
 if has('persistent_undo')      "check if your vim version supports it
   set undofile                 "turn on the feature  
   set undodir=$HOME/.config/nvim/undo  "directory where the undo files will be stored
-endif   
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""
 " plugins
@@ -79,6 +85,7 @@ let g:elm_detailed_complete = 1
 
 " colors scheme
 Plug 'jacoborus/tender.vim'
+Plug 'mhartington/oceanic-next'
 
 " git plugin
 Plug 'tpope/vim-fugitive'
@@ -124,6 +131,7 @@ Plug 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](elm-stuff|dist)$'
   \ }
+let g:ctrlp_clear_cache_on_exit = 0
 
 Plug 'mileszs/ack.vim'
 
