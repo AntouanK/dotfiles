@@ -179,15 +179,14 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # bar
 bar {
 #  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#
-# we get random errors from the fx module
-  #eth \
-  #bitcoin \
+
+  output DP-2
+
+  #cmus \
   status_command bumblebee-status -t solarized-powerline -m \
-  fx \
+  currency \
   getcrypto \
   publicip \
-  cmus \
   weather \
   pasink  \
   disk disk:diskhome \
@@ -205,7 +204,8 @@ bar {
   datetime.format='%a %b %e %T' 
 
   #font pango:Fira Mono for Powerline 10
-  font pango:Droid Sans Mono Dotted for Powerline 10
+  #font pango:Droid Sans Mono Dotted for Powerline 12
+  font pango:Inconsolata for Powerline 13
 
   colors {
         background $bg-color
