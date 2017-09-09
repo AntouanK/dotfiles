@@ -159,7 +159,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # set wallpaper
-exec feh --bg-scale ~/Pictures/_wallpapers_/04110_cannonbeachsunset_3440x1440.jpg
+exec feh --bg-scale --randomize ~/Pictures/_wallpapers_/3440x1440/* 
 
 # colors
 set $bg-color 	         #2f343f
