@@ -28,15 +28,16 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export "PKG_CONFIG=/usr/bin/pkg-config"
 
 export EDITOR='nvim'
-# add the binaries in the PATH
-export PATH="$(echo ~/.npm-global/bin):/home/antouank/.local/bin:/home/antouank/.cabal/bin:$PATH"
-export BROWSER=/usr/bin/vivaldi-stable
+
+export PATH="/bin:/home/antouank/.local/bin:/home/antouank/.cabal/bin:$PATH"
+export BROWSER=/usr/bin/firefox
 
 # pure theme
 # https://github.com/sindresorhus/pure
 #autoload -U promptinit; promptinit
 #prompt pure
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ###################
 # aliases
@@ -80,3 +81,4 @@ alias make-build-watch="find ./src | grep .elm | entr make ELM_MODE=development"
 alias vpnStart="sudo systemctl start openvpn-client@de-1-vultr.service"
 alias vpnStop="sudo systemctl stop openvpn-client@de-1-vultr.service"
 
+export TERM=xterm-256color
