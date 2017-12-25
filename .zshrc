@@ -29,7 +29,7 @@ export "PKG_CONFIG=/usr/bin/pkg-config"
 
 export EDITOR='nvim'
 
-export PATH="/bin:/home/antouank/.local/bin:/home/antouank/.cabal/bin:$PATH"
+export PATH="/bin:/home/antouank/.local/bin:/home/antouank/.npm-packages/bin:/home/antouank/.cabal/bin:$PATH"
 export BROWSER=/usr/bin/firefox
 
 # pure theme
@@ -38,6 +38,13 @@ export BROWSER=/usr/bin/firefox
 #prompt pure
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 ###################
 # aliases
@@ -78,7 +85,7 @@ alias shutdown
 
 alias make-build-watch="find ./src | grep .elm | entr make ELM_MODE=development"
 
-alias vpnStart="sudo systemctl start openvpn-client@de-1-vultr.service"
-alias vpnStop="sudo systemctl stop openvpn-client@de-1-vultr.service"
+alias vpn-start="sudo systemctl start openvpn-client@de-1-vultr.service"
+alias vpn-stop="sudo systemctl stop openvpn-client@de-1-vultr.service"
 
 export TERM=xterm-256color
