@@ -46,6 +46,32 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+# on terminal session start
+screenfetch
+
+# some "help" text
+function echo_color() {
+  local color="$1"
+  printf "${color}$2\033[0m\n"
+}
+function help-zsh() {
+    local dark_grey="\033[0;90m"
+    echo_color ${dark_grey} "c-f  Move forward"
+    echo_color ${dark_grey} "c-b  Move backward"
+    echo_color ${dark_grey} "c-p  Move up"
+    echo_color ${dark_grey} "c-n  Move down"
+    echo_color ${dark_grey} "c-a  Jump to beginning of line"
+    echo_color ${dark_grey} "c-e  Jump to end of line"
+    echo_color ${dark_grey} "c-d  Delete forward"
+    echo_color ${dark_grey} "c-h  Delete backward"
+    echo_color ${dark_grey} "c-k  Delete forward to end of line"
+    echo_color ${dark_grey} "c-u  Delete entire line"
+
+    echo_color ${dark_grey} ___alias___
+    grep "alias " ~/.zshrc
+
+}
+
 ###################
 # aliases
 alias ls='ls --color -lahG'
@@ -53,9 +79,10 @@ alias ls='ls --color -lahG'
 alias grep='grep --color=auto'
 # my ip
 alias realip='curl curlmyip.com'
-# git status
+# git
+alias gdevpull='git checkout develop && git pull'
+alias gdelorphans='git branch -vv | grep '"': gone]'"' | awk '"'"'{print $1}'"'"' | xargs -n 1 git branch -d'
 alias st='git status -s'
-#git log
 alias glog='git log --oneline --graph --all'
 # see size of directory
 alias sizeof='du -sh'
@@ -70,18 +97,16 @@ alias dstats='docker ps -a --format "table {{.Names}}" | grep -v "NAMES" | xargs
 alias dcbuildup='docker-compose build && dcup && dclogs -f'
 alias dcstoprm='docker-compose stop && docker-compose rm -f'
 alias dcd='docker-compose -f docker-compose.dev.yml'
+alias dsls='docker stack ls'
+alias dsps='docker stack ps'
+alias dsrm='docker stack rm'
+alias dsservices='docker stack services'
+alias dsdeploy='docker stack deploy'
 
-# git
-#alias gdiff='git diff --color | diff-so-fancy | less'
-alias gdevpull='git checkout develop && git pull'
 # ping
 alias ping_google="ping google.com -c 1 | grep time= | sed 's/.*time\=//g'"
 # arch update all
 alias yupdate="yaourt -Syyu --devel --aur"
-# on terminal session start
-screenfetch
-
-alias shutdown
 
 alias make-build-watch="find ./src | grep .elm | entr make ELM_MODE=development"
 
@@ -89,3 +114,5 @@ alias vpn-start="sudo systemctl start openvpn-client@de-1-vultr.service"
 alias vpn-stop="sudo systemctl stop openvpn-client@de-1-vultr.service"
 
 export TERM=xterm-256color
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
