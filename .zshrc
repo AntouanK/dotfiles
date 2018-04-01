@@ -47,7 +47,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # on terminal session start
-screenfetch
+neofetch
 
 # some "help" text
 function echo_color() {
@@ -70,6 +70,10 @@ function help-zsh() {
     echo_color ${dark_grey} ___alias___
     grep "alias " ~/.zshrc
 
+}
+
+function gitcommit() {
+    git add . && git commit -m $1 && git push -u origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 ###################
