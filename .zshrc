@@ -106,16 +106,15 @@ alias dsps='docker stack ps'
 alias dsrm='docker stack rm'
 alias dsservices='docker stack services'
 alias dsdeploy='docker stack deploy'
-
 # ping
 alias ping_google="ping google.com -c 1 | grep time= | sed 's/.*time\=//g'"
 # arch update all
-alias yupdate="yaourt -Syyu --devel --aur"
+alias yay="yay --color=auto"
+alias yupdate="yay -Syyu --color=auto"
+alias xclip="xclip -selection c"
 
-alias make-build-watch="find ./src | grep .elm | entr make ELM_MODE=development"
-
-alias vpn-start="sudo systemctl start openvpn-client@de-1-vultr.service"
-alias vpn-stop="sudo systemctl stop openvpn-client@de-1-vultr.service"
+alias mosh-garage="mosh -ssh=\"ssh -p 11022\" crazy.homeip.net -p 11170:11175 tmux"
+alias mosh-styx="mosh -ssh=\"ssh -p 12022\" crazy.homeip.net -p 12170:12175 tmux"
 
 export TERM=xterm-256color
 
