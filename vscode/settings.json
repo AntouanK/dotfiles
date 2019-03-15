@@ -1,0 +1,21 @@
+{
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        80
+    ],
+    "elm.analyseEnabled": true,
+    "elm.maxWorkspaceFilesUsedBySymbols": 200,
+    "elm.reactorPort": 8800,
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "lucy",
+    "editor.formatOnSave": true,
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.tabCompletion": "on",
+    "git.autofetch": true,
+    "javascript.format.enable": false
+}

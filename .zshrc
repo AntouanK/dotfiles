@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # use oh-my-zsh theme
-ZSH_THEME="steeef"
+ZSH_THEME="cypher"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/antouank/.oh-my-zsh
@@ -31,6 +31,8 @@ export EDITOR='nvim'
 
 export PATH="/bin:/home/antouank/.local/bin:/home/antouank/.npm-packages/bin:/home/antouank/.cabal/bin:$PATH"
 export BROWSER=/usr/bin/firefox
+
+export MAKEFLAGS="-j 8"
 
 # pure theme
 # https://github.com/sindresorhus/pure
@@ -110,13 +112,25 @@ alias dsdeploy='docker stack deploy'
 # ping
 alias ping_google="ping google.com -c 1 | grep time= | sed 's/.*time\=//g'"
 # arch update all
-alias yupdate="yaourt -Syyu --devel --aur"
+alias yupdate="yay -Syu --devel --timeupdate"
+alias xclip="xclip -selection c"
 
 alias make-build-watch="find ./src | grep .elm | entr make ELM_MODE=development"
 
 alias vpn-start="sudo systemctl start openvpn-client@de-1-vultr.service"
 alias vpn-stop="sudo systemctl stop openvpn-client@de-1-vultr.service"
 
+alias mosh-garage="mosh -ssh=\"ssh -p 11022\" crazy.homeip.net -p 11070:11072"
+
+peek() { tmux split-window -p 33 $EDITOR $@ || exit; }
+
 export TERM=xterm-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /run/media/antouank/evo1/_REPOS_/_elsewhen_/se-graphql/node_modules/tabtab/.completions/serverless.zsh ]] && . /run/media/antouank/evo1/_REPOS_/_elsewhen_/se-graphql/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /run/media/antouank/evo1/_REPOS_/_elsewhen_/se-graphql/node_modules/tabtab/.completions/sls.zsh ]] && . /run/media/antouank/evo1/_REPOS_/_elsewhen_/se-graphql/node_modules/tabtab/.completions/sls.zsh
