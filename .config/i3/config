@@ -13,8 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:SFNS Display 12
-#font pango:Cantarell 14
+#font pango:SFNS Display 12
+font pango:Cantarell 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -83,7 +83,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -185,24 +185,31 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # i3-gaps
 for_window [class="^.*"] border pixel 0
-gaps outer 6
-gaps inner 8
+#gaps outer 4
+gaps inner 20
 
 # lock i3
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -font "SFNS Display Thin 14"
-bindsym $mod+Tab exec rofi -show window -font "SFNS Display Thin 14"
+bindsym $mod+d exec rmenu_g
+bindsym $mod+space exec rmenu_g
+bindsym $mod+Tab exec rofi -show window -font "SFNS Display 14"
 
+# second monitor
+exec --no-startup-id "xrandr --output HDMI-0 --rotate left"
+exec --no-startup-id "xrandr --output HDMI-0 --right-of DP-0"
+exec --no-startup-id "xrandr --output DP-0 --primary"
 # exec compton -f
-exec /home/antouank/_REPOS_/compton/compton -CGb --config ~/.config/compton.conf
+exec /home/antouank/.local/bin/compton -CGb --config ~/.config/compton.conf
 
 #exec --no-startup-id "setxkbmap -model pc105 -layout gb,gr -option grp:alt_shift_toggle"
 exec --no-startup-id "xset r rate 280 40 # Set initial delay 280ms, repeat 40ms"
 
 # apple keyboard
 exec --no-startup-id "setxkbmap -layout us,gr -option grp:alt_shift_toggle"
+
+exec --no-startup-id source ~/.zshrc
 
 exec polybar -r main
 
