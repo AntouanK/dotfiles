@@ -1,0 +1,16 @@
+{
+  "codeLens.enable": true,
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmAnalyseTrigger": "change"
+      }
+    }
+  }
+}
